@@ -110,7 +110,7 @@ const addProject = (host: Tree, options: NormalizedSchema) => {
     projectType,
     targets: {
       'generate-sources': {
-        executor: '@trumbitta/nx-plugin-openapi:generate-api-lib-sources',
+        executor: '@iungo/nx-plugin-openapi:generate-api-lib-sources',
         options: executorOptions,
       },
     },
