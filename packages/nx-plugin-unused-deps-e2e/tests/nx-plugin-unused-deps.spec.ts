@@ -10,7 +10,7 @@ import {
 import { appRootPath } from '@nrwl/tao/src/utils/app-root';
 
 describe('nx-plugin-unused-deps', () => {
-  const plugin = '@trumbitta/nx-plugin-unused-deps';
+  const plugin = '@iungo/nx-plugin-unused-deps';
   const distPath = 'dist/packages/nx-plugin-unused-deps';
 
   beforeAll(async () => {
@@ -18,7 +18,7 @@ describe('nx-plugin-unused-deps', () => {
 
     await runCommandAsync('npm i react express; npm i -D jest @types/express');
     await runNxCommandAsync('generate @nrwl/node:app --name=app');
-    await runCommandAsync(`npm remove @trumbitta/nx-plugin-unused-deps`);
+    await runCommandAsync(`npm remove @iungo/nx-plugin-unused-deps`);
 
     /**
      * install from pack rather than installing from the directory
@@ -31,10 +31,10 @@ describe('nx-plugin-unused-deps', () => {
 
   // IDK why this stopped working
   it.skip('should display an info message at postinstall', async () => {
-    await runCommandAsync(`npm remove @trumbitta/nx-plugin-unused-deps`);
+    await runCommandAsync(`npm remove @iungo/nx-plugin-unused-deps`);
     const { stdout } = await runCommandAsync(`npm install $(npm pack ${appRootPath}/${distPath} | tail -1)`);
 
-    expect(stdout).toContain('$ nx generate @trumbitta/nx-plugin-unused-deps:check');
+    expect(stdout).toContain('$ nx generate @iungo/nx-plugin-unused-deps:check');
   }, 120000);
 
   it('should log unused deps to console', async () => {
